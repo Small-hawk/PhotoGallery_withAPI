@@ -1,7 +1,10 @@
 'use strict';
 
-function createElementHtml(searchedData){
+function createElementHtml(searchedData) {
     let html;
+    let formatedDate = new Date(searchedData.updated_at);
+    formatedDate = localFormDate(formatedDate);
+
     html = `<div class="column is-one-third-desktop is-full-mobile">    
                     <div class="card">
                       <div class="card-image">
@@ -17,18 +20,20 @@ function createElementHtml(searchedData){
                             </figure>
                           </div>
                           <div class="media-content">
-                            <p class="title is-4">"${searchedData.user.first_name?searchedData.user.first_name:''} ${searchedData.user.last_name?searchedData.user.last_name:''}"</p>
+                            <p class="title is-4">"${searchedData.user.first_name ? searchedData.user.first_name : ''} ${searchedData.user.last_name ? searchedData.user.last_name : ''}"</p>
                             <p class="subtitle is-6"><a href="${searchedData.user.portfolio_url}">@${searchedData.user.instagram_username}</a></p>
                           </div>
                         </div>            
                         <div class="content">
-                          "${searchedData.user.bio}"
+                            <p id="bio">
+                                '${(searchedData.user.bio == null || "" || undefined) ? 'See my Profile' : searchedData.user.bio}'
+                            </p>
                           <br>
-                          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                          <time datetime="12/06/2018 19:30">${formatedDate}</time>
                         </div>
                       </div>
                       <footer class="card-footer">
-                        <button class="card-footer-item is-link is-inverted" id="like">Μου αρέσει</button>                
+                        <button class="card-footer-item footerButton" id="like">Μου αρέσει</button>                
                       </footer>
                     </div>
                 </div>`;
@@ -36,7 +41,7 @@ function createElementHtml(searchedData){
     return html;
 }
 
-function pagintation(){
+function pagintation() {
     let html = "";
     html = `<li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
             <li><span class="pagination-ellipsis">&hellip;</span></li>

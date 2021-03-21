@@ -1,0 +1,21 @@
+#bio {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#bio:hover {
+    overflow: visible;
+}
+
+.footerButton{
+    color: hsl(217, 71%, 53%);
+    background-color: hsl(0, 0%, 100%);
+    border-color: hsl(0, 0%, 100%);
+}
+
+.buttonLiked{
+    color: hsl(0, 0%, 100%);
+    background-color: hsl(217, 71%, 53%);
+    box-shadow: hsl(217, 71%, 53%);
+}

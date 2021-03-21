@@ -15,12 +15,12 @@
 //     })
 // }
 
-async function search(query='code'){
+async function search(query = 'code') {
     let serverData = {};
 
-    serverData = await fetch(`https://api.unsplash.com/search/photos/?query=${query}&page=${currPage}&perPage=${totalPerPage}&order_by=${orderBy}`,{
+    serverData = await fetch(`https://api.unsplash.com/search/photos/?query=${query}&page=${currPage}&per_page=${totalPerPage}&order_by=${orderBy}`, {
         method: 'GET',
-        headers:{
+        headers: {
             'Authorization': `Client-ID ${apiKey}`
         }
     })
