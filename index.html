@@ -21,23 +21,33 @@
                 </p>
             </div>
         </section>
-<!--        <section class="hero is-halfheight" id="searchArea">-->
         <section class="section" id="searchArea">
             <div class="field has-addons mt-6 py-6">
-                <p class="control is-expanded" id="searchBar">
-                    <input class="input is-normal" type="text" placeholder="Search">
+                <p class="control is-expanded">
+                    <input class="input is-normal" id="searchBar" type="text" placeholder="Search">
                 </p>
-                <p class="control" id="searchButton">
-                    <button class="button is-info">Search</button>
+                <p class="control">
+                    <button class="button is-info" id="searchButton">Search</button>
                 </p>
             </div>
         </section>
         <section class="section" >
             <div class="columns is-multiline" id="elements"></div>
+            <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+                <a class="pagination-previous">Previous</a>
+                <a class="pagination-next">Next page</a>
+                <ul class="pagination-list">
+
+                </ul>
+            </nav>
         </section>
 
     </section>
 
+    <script src="JS/createElements.js"></script>
+    <script src="JS/functions.js"></script>
+    <script src="JS/listeners.js"></script>
+    <script src="JS/requestsAjax.js"></script>
     <script src="JS/main.js"></script>
 </body>
 </html>
