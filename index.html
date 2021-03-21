@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PhotoGallery</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section class="container">
+        <section class="section" id="headerArea">
+            <div class="container has-text-centered">
+                <h1 class="title">
+                    Stelios Karakostas
+                </h1>
+                <p class="subtitle">
+                    A photo gallery with data from <strong>UnsplashApi</strong>!
+                </p>
+            </div>
+        </section>
+<!--        <section class="hero is-halfheight" id="searchArea">-->
+        <section class="section" id="searchArea">
+            <div class="field has-addons mt-6 py-6">
+                <p class="control is-expanded" id="searchBar">
+                    <input class="input is-normal" type="text" placeholder="Search">
+                </p>
+                <p class="control" id="searchButton">
+                    <button class="button is-info">Search</button>
+                </p>
+            </div>
+        </section>
+        <section class="section" >
+            <div class="columns is-multiline" id="elements"></div>
+        </section>
+
+    </section>
+
+    <script src="JS/main.js"></script>
+</body>
+</html>
