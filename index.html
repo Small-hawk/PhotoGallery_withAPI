@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PhotoGallery</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma-rtl.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -22,20 +23,103 @@
         </div>
     </section>
     <section class="section" id="searchArea">
-        <div class="field has-addons mt-6 py-6">
+        <div class="field has-addons">
             <p class="control is-expanded">
                 <input class="input is-normal" id="searchBar" type="search" placeholder="Search">
             </p>
+
+            <div class="dropdown is-hoverable">
+                <div class="dropdown-trigger">
+                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
+                        <span>Examples</span>
+                        <span class="icon is-small">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu-quickSearch" role="menu">
+                    <div class="dropdown-content">
+                        <a class="dropdown-item" onclick="setUserSearch('Sea')">
+                            Sea
+                        </a>
+                        <a class="dropdown-item" onclick="setUserSearch('Mountain')">
+                            Mountain
+                        </a>
+                        <a class="dropdown-item" onclick="setUserSearch('Wallpaper')">
+                            Wallpaper
+                        </a>
+                        <a class="dropdown-item" onclick="setUserSearch('City')">
+                            City
+                        </a>
+                        <a class="dropdown-item" onclick="setUserSearch('People')">
+                            People
+                        </a>
+                        <a class="dropdown-item" onclick="setUserSearch('Code')">
+                            Code
+                        </a>
+                        <a class="dropdown-item" onclick="setUserSearch('Animals')">
+                            Animals
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown is-hoverable">
+                <div class="dropdown-trigger">
+                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
+                        <span>PerPage</span>
+                        <span class="icon is-small">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu-PerPage" role="menu">
+                    <div class="dropdown-content">
+                        <a class="dropdown-item" onclick="setItemsPerPage(12)">
+                            12
+                        </a>
+                        <a class="dropdown-item" onclick="setItemsPerPage(24)">
+                            24
+                        </a>
+                        <a class="dropdown-item" onclick="setItemsPerPage(36)">
+                            36
+                        </a>
+                        <a class="dropdown-item" onclick="setItemsPerPage(48)">
+                            48
+                        </a>
+                    </div>
+                </div>
+            </div>
             <p class="control">
                 <button class="button is-info" id="searchButton">Search</button>
             </p>
         </div>
+        <div class="is-size-5 has-text-left is-family-monospace mt0" id="results"></div>
+
+        <div class="columns mt-6">
+            <div class="column control is-expanded">
+
+            </div>
+            <div class="field has-addons">
+                <p class="control">
+                    <button class="button is-centered focused" onclick="setOrderBy('relevant')">
+                          Relevant
+                    </button>
+                </p>
+                <p class="control">
+                    <button class="button is-centered" onclick="setOrderBy('latest')">
+                        Latest
+                    </button>
+                </p>
+            </div>
+        </div>
+
+
     </section>
     <section class="section">
-        <div class="columns is-multiline is-vcentered box" id="elements"></div>
+        <div class="columns is-multiline is-align-content-center is-centered box" id="elements"></div>
         <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-            <a class="pagination-previous">Previous</a>
-            <a class="pagination-next">Next page</a>
+            <a class="pagination-previous" onclick="previousPage()" id="prevPageB">Previous</a>
+            <a class="pagination-next" onclick="nextPage()" id="nextPageB">Next page</a>
             <ul class="pagination-list">
 
             </ul>

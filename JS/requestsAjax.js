@@ -15,8 +15,9 @@
 //     })
 // }
 
-async function search(query = 'code') {
+async function search() {
     let serverData = {};
+    let query = userSearch;
 
     serverData = await fetch(`https://api.unsplash.com/search/photos/?query=${query}&page=${currPage}&per_page=${totalPerPage}&order_by=${orderBy}`, {
         method: 'GET',
@@ -26,6 +27,8 @@ async function search(query = 'code') {
     })
     console.log(`${totalPerPage} ${currPage} ${orderBy}`);
     serverData = await serverData.json();
+    setTotalItems(serverData.total);
+    console.log(serverData);
     console.log(serverData.results);
     return serverData.results;
 }

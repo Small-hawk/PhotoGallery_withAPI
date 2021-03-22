@@ -5,7 +5,9 @@ function createElementHtml(searchedData) {
     let formatedDate = new Date(searchedData.updated_at);
     formatedDate = localFormDate(formatedDate);
 
-    html = `<div class="column is-one-third-desktop is-full-mobile">    
+    console.log(isLiked(searchedData.id));
+
+    html = `<div class="column is-one-third-desktop is-full-mobile" id="${searchedData.id}">
                     <div class="card">
                       <div class="card-image">
                         <figure class="image is-4by3">
@@ -33,11 +35,10 @@ function createElementHtml(searchedData) {
                         </div>
                       </div>
                       <footer class="card-footer">
-                        <button class="card-footer-item footerButton" id="like">Μου αρέσει</button>                
+                        <a class="card-footer-item button is-info is-outlined ${(isLiked(searchedData.id)) ? 'is-focused' : '' }" id="like">Μου αρέσει</a>                
                       </footer>
                     </div>
                 </div>`;
-
     return html;
 }
 

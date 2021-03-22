@@ -19,3 +19,11 @@
     background-color: hsl(217, 71%, 53%);
     box-shadow: hsl(217, 71%, 53%);
 }
+
+.dropdownButton{
+    color: hsl(217, 71%, 53%);
+    background-color: hsl(0, 0%, 100%);
+    border-color: hsl(0, 0%, 100%);
+    box-shadow: none;
+    margin: 0;
+}

@@ -4,8 +4,7 @@ document.querySelector('#searchButton').addEventListener('click', (evt) => {
     let dataInput = "";
 
     dataInput = document.querySelector('#searchBar').value;
-    console.log(dataInput);
-    (dataInput.length == 0) ? alert("empty search!") : runSearch(dataInput);
+    (dataInput.length == 0) ? alert("empty search!") : setUserSearch(dataInput);
 })
 
 document.querySelector('#searchBar').addEventListener('keyup', (evt) => {
@@ -13,18 +12,21 @@ document.querySelector('#searchBar').addEventListener('keyup', (evt) => {
         let dataInput = "";
 
         dataInput = document.querySelector('#searchBar').value;
-        console.log(dataInput);
-        (dataInput.length == 0) ? alert("empty search!") : runSearch(dataInput);
+        (dataInput.length == 0) ? alert("empty search!") : setUserSearch(dataInput);
     }
 })
 
 document.querySelector('#elements').addEventListener('click', evt => {
-    let target = evt.target;
-    console.log(target);
-    console.log(target.id);
+    let target = {};
+    let id = '';
+
+    target = evt.target;
+    id = target.parentElement.parentElement.parentElement.id;
     if (target.id == 'like') {
-        console.log(target.id);
-        target.classList.add('buttonLiked');
-        console.log(target.classList);
+        target.classList.contains('is-focused') ? unlikePhoto(id) : likePhoto(id);
+        target.classList.toggle('is-focused');
     }
 })
+
+document.querySelector('#prevPageB').addEventListener('click',(evt)=>document.documentElement.scrollTop = 0);
+document.querySelector('#nextPageB').addEventListener('click',(evt)=>document.documentElement.scrollTop = 0);
