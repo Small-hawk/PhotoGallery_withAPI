@@ -13,6 +13,8 @@ function runSearch() {
         })
         loadDataHtml(dataHtml, '#elements');
         showUserResults();
+        setPagination();
+        document.querySelector(`#pageB${currPage}`).classList.add('is-current');
     });
 }
 
@@ -86,6 +88,12 @@ function previousPage() {
     runSearch();
 }
 
+function setCurrPage(numPage) {
+    currPage = numPage;
+    document.documentElement.scrollTop = 0;
+    runSearch();
+}
+
 function setUserSearch(inputStr) {
     userSearch = inputStr;
     runSearch();
@@ -102,13 +110,36 @@ function showUserResults() {
 
 function setPagination() {
     let totalPages = Math.ceil(totalItems / totalPerPage);
+    let arrMap = [];
+    let htmlDone = "";
 
-    if (currPage <= 2) {
-
-    } else if (currPage >= 3) {
-
-    } else if (currPage <= totalPages - 2) {
-
+    if (currPage <= 3) {
+        if(currPage == 1){
+            arrMap.push(1,2,3,'e', Math.ceil(totalPages/2),'e',totalPages);
+        }
+        else if(currPage == 2){
+            arrMap.push(1,2,3,4,'e', Math.ceil(totalPages/2),'e',totalPages);
+        }
+        else if(currPage == 3){
+            arrMap.push(1,2,3,4,5,'e', Math.ceil(totalPages/2),'e',totalPages);
+        }
+    } else if (currPage >= 4 && currPage <= totalPages - 2) {
+        arrMap.push(1,'e');
+        for(let i=currPage-2; i<=currPage+2; i++){
+            arrMap.push(i);
+        }
+        arrMap.push('e',totalPages);
+    } else if (currPage >= totalPages - 2) {
+        if(currPage == totalPages-2){
+            arrMap.push(1,'e', Math.ceil(totalPages/2),'e', totalPages-4, totalPages-3, totalPages-2, totalPages-1, totalPages);
+        }
+        else if(currPage == totalPages-1){
+            arrMap.push(1,'e', Math.ceil(totalPages/2),'e', totalPages-3, totalPages-2, totalPages-1, totalPages);
+        }
+        else if(currPage == totalPages){
+            arrMap.push(1,'e', Math.ceil(totalPages/2),'e', totalPages-2, totalPages-1, totalPages);
+        }
     }
-
+    htmlDone = pagination(arrMap);
+    loadDataHtml(htmlDone, "#myPagination");
 }
