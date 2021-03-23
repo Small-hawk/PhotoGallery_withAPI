@@ -20,8 +20,16 @@ function runSearch() {
 
 function localFormDate(elem) {
     let date = new Date(elem);
-    let formatedDate = new Date();
-    return formatedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}  ${date.getHours()}:${date.getMinutes()}`;
+    let formatedDate =  "";
+    return formatedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}  
+                           ${addZeroInTime(date.getHours())}:${addZeroInTime(date.getMinutes())}`;
+}
+
+function addZeroInTime(num) {
+    if (num < 10) {
+        num = "0" + num;
+    }
+    return num;
 }
 
 function likePhoto(newLike) {
@@ -52,11 +60,9 @@ function isLiked(idPhoto) {
     let flag = false;
 
     if (localStorage.getItem('likedData')) {
-        console.log('yes')
         tempData = JSON.parse(localStorage.getItem("likedData"));
         tempData.forEach(function(d){
             if(d === idPhoto){
-                console.log("yes yes")
                 flag = true;
             }
         })
@@ -79,13 +85,17 @@ function setOrderBy(order) {
 }
 
 function nextPage() {
-    currPage++;
-    runSearch();
+    if(currPage != Math.ceil(totalItems / totalPerPage)){
+        currPage++;
+        runSearch();
+    }
 }
 
 function previousPage() {
-    currPage--;
-    runSearch();
+    if(currPage != 1){
+        currPage--;
+        runSearch();
+    }
 }
 
 function setCurrPage(numPage) {

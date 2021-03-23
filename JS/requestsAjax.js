@@ -25,10 +25,7 @@ async function search() {
             'Authorization': `Client-ID ${apiKey}`
         }
     })
-    console.log(`${totalPerPage} ${currPage} ${orderBy}`);
     serverData = await serverData.json();
     setTotalItems(serverData.total);
-    console.log(serverData);
-    console.log(serverData.results);
     return serverData.results;
 }

@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PhotoGallery</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
@@ -11,7 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<section class="container">
+<section class="container is-fluid">
     <section class="section" id="headerArea">
         <div class="container has-text-centered">
             <h1 class="title">
@@ -23,11 +22,10 @@
         </div>
     </section>
     <section class="section" id="searchArea">
-        <div class="field has-addons">
+        <div class="container is-fluid field has-addons">
             <p class="control is-expanded">
                 <input class="input is-normal" id="searchBar" type="search" placeholder="Search">
             </p>
-
             <div class="dropdown is-hoverable">
                 <div class="dropdown-trigger">
                     <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
@@ -93,13 +91,11 @@
                 <button class="button is-info" id="searchButton">Search</button>
             </p>
         </div>
-        <div class="is-size-5 has-text-left is-family-monospace mt0" id="results"></div>
-
-        <div class="columns mt-6">
+        <div class="container is-fluid is-size-5 has-text-left is-family-monospace mt0" id="results"></div>
+        <div class="container is-fluid columns mt-5 mgb=0">
             <div class="column control is-expanded">
-
             </div>
-            <div class="field has-addons">
+            <div class="field has-addons is-pulled-right">
                 <p class="control">
                     <button class="button is-centered focused" onclick="setOrderBy('relevant')">
                           Relevant
@@ -112,20 +108,17 @@
                 </p>
             </div>
         </div>
-
-
     </section>
     <section class="section">
-        <div class="columns is-multiline is-align-content-center is-centered box" id="elements"></div>
-        <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-            <a class="pagination-previous" onclick="previousPage()" id="prevPageB">Previous</a>
-            <a class="pagination-next" onclick="nextPage()" id="nextPageB">Next page</a>
-            <ul class="pagination-list" id="myPagination">
-
-            </ul>
-        </nav>
+        <div class="container is-fluid">
+            <div class="columns box is-multiline " id="elements"></div>
+            <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+                <a class="pagination-previous" onclick="previousPage()" id="prevPageB">Previous</a>
+                <a class="pagination-next" onclick="nextPage()" id="nextPageB">Next page</a>
+                <ul class="pagination-list" id="myPagination"></ul>
+            </nav>
+        </div>
     </section>
-
 </section>
 
 <script src="JS/createElements.js"></script>
